@@ -7,7 +7,7 @@
 Запуск сайта для локальной разработки:
 
 ```bash
-docker run -it --rm -p 1313:1313 -v $(pwd):/src --entrypoint bash -u $(id -u ${USER}):$(id -g ${USER}) klakegg/hugo:ubuntu
+docker run -it --rm -p 1313:1313 -v $(pwd):/src -u $(id -u ${USER}):$(id -g ${USER}) klakegg/hugo:ubuntu
 ```
 
-Сайт будет доступен по адресу [http://localhost:1313]
+Сайт будет доступен по адресу [http://localhost:1313](http://localhost:1313)
