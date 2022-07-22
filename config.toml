@@ -1,0 +1,63 @@
+baseURL = 'http://updev.ru/'
+languageCode = 'ru-ru'
+defaultContentLanguage = "ru"
+title = 'Ладыгин Сергей'
+theme = "gokarna"
+
+# Automatically generate robots.txt
+enableRobotsTXT = true
+
+[menu]
+  [[menu.main]]
+    identifier = "projects"
+    url = "/projects/"
+    name = "Проекты"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "github"
+    url = "https://github.com/updevru"
+    weight = 3
+
+    # We use feather-icons: https://feathericons.com/
+    pre = "<span data-feather='github'></span>"
+
+  [[menu.main]]
+    identifier = "rss"
+    pre = "<span data-feather='rss'></span>"
+    url = "/index.xml"
+    weight = 4
+
+[params]
+  # URL for the avatar on homepage
+  avatarURL = "/images/avatar.jpg"
+
+  # Choose one of size-xs, size-s, size-m, size-l & size-xl. (Default: size-m)
+  avatarSize = "size-l"
+
+  # Description to display on homepage
+  description = "PHP Lead developer"
+
+  # Accent color is displayed when you hover over <a> tags
+  accentColor = "#FF4D4D"
+
+  # You can use this to inject any HTML in the <head> tag.
+  # Ideal usecase for this is to import custom js/css or add your analytics snippet
+  customHeadHTML = ""
+
+  # Keywords relevant for SEO
+  metaKeywords = ["ладыгин сергей"]
+
+  # If you want to display posts on the homepage, the options are
+  # "popular" (order posts by weight), "recent" (order posts by date)
+  # or "" (do not display, default option)
+  # showPostsOnHomePage = ""
+
+  # Footer text
+  footer = "Ладыгин Сергей"
+
+  socialIcons = [
+      {name = "github-brands", url = "https://github.com/updevru" },
+      {name = "telegram-brands", url = "https://t.me/updev"},
+      {name = "vk-brands", url = "https://vk.com/updevru"},
+    ]
