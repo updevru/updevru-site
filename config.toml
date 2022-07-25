@@ -1,4 +1,4 @@
-baseURL = 'http://updev.ru/'
+baseURL = 'https://updev.ru/'
 languageCode = 'ru-ru'
 defaultContentLanguage = "ru"
 title = 'Ладыгин Сергей'
