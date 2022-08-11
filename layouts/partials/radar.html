@@ -1,0 +1,446 @@
+
+    <script src="/tech-radar/js/d3.v4.min.js"></script>
+    <script src="/tech-radar/js/radar-0.6.js"></script>
+
+    <svg id="radar"></svg>
+    <div class="post-content">
+        <p>
+            {{ .Content }}
+        </p>
+    </div>
+
+    <script>
+        const themeCurrent = localStorage.getItem('theme-preference');
+        const themeSettings = {
+            "light": {
+                colors: {
+                    background: "rgb(var(--light-primary-color))",
+                    grid: "#bbb",
+                    inactive: "#ddd"
+                },
+            },
+            "dark": {
+                colors: {
+                    background: "rgb(var(--dark-primary-color))",
+                    grid: "#bbb",
+                    inactive: "#ddd"
+                },
+            }
+        }
+
+        radar_visualization({
+            svg_id: "radar",
+            width: 1500,
+            height: 1000,
+            colors: themeSettings[themeCurrent]['colors'],
+            title: "{{ .Title }}",
+            quadrants: [
+                { name: "Языки и фреймворки" },
+                { name: "Инфраструктура" },
+                { name: "Управление данными" },
+                { name: "Техники и инструменты" },
+            ],
+            rings: [
+                { name: "ADOPT", color: "#93c47d" },
+                { name: "TRIAL", color: "#93d2c2" },
+                { name: "ASSESS", color: "#fbdb84" },
+                { name: "HOLD", color: "#efafa9" }
+            ],
+            print_layout: true,
+            //ENTRIES
+            entries: [
+                //Управление данными
+                {
+                    "quadrant": 2,
+                    "ring": 0,
+                    "label": "PostgreSQL",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 2,
+                    "ring": 3,
+                    "label": "MongoDB",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 2,
+                    "ring": 0,
+                    "label": "MySQL",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 2,
+                    "ring": 0,
+                    "label": "Memcache",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 2,
+                    "ring": 0,
+                    "label": "RabbitMQ",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 2,
+                    "ring": 0,
+                    "label": "Kafka",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 2,
+                    "ring": 0,
+                    "label": "Elasticsearch",
+                    "active": true,
+                    "moved": 0
+                },
+                //Языки и фреймворки
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "PHP",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "JavaScript",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "Symfony",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "Golang",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "ReactJS",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "CSS",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 2,
+                    "label": "Laravel",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 3,
+                    "label": "Zend Framework",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 1,
+                    "label": "Hugo",
+                    "active": true,
+                    "moved": 1
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 2,
+                    "label": "Protobuf",
+                    "active": true,
+                    "moved": 1
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "PHPUnit",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "Composer",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "Npm",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 2,
+                    "label": "Yarn",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 2,
+                    "label": "Webpack",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 3,
+                    "label": "Phing",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 3,
+                    "label": "Smarty",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "EasyAdmin",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "Api Platform",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "Twig",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 3,
+                    "label": "Angular 1",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "PHP CS Fixer",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
+                    "label": "Psalm",
+                    "active": true,
+                    "moved": 0
+                },
+                //Инфраструктура
+                {
+                    "quadrant": 1,
+                    "ring": 0,
+                    "label": "Docker",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 1,
+                    "ring": 0,
+                    "label": "Docker Swarm",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 1,
+                    "ring": 0,
+                    "label": "Ansible",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 1,
+                    "ring": 0,
+                    "label": "Nginx",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 1,
+                    "ring": 0,
+                    "label": "Apache",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 1,
+                    "ring": 1,
+                    "label": "PHP-FPM",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 1,
+                    "ring": 0,
+                    "label": "Traefik",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 1,
+                    "ring": 2,
+                    "label": "Consul",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 1,
+                    "ring": 0,
+                    "label": "Ubuntu Server",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 1,
+                    "ring": 0,
+                    "label": "Debian",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 1,
+                    "ring": 0,
+                    "label": "Cron",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 1,
+                    "ring": 0,
+                    "label": "Dkron",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 1,
+                    "ring": 0,
+                    "label": "Logstash",
+                    "active": true,
+                    "moved": 0
+                },
+                //Техники и инструменты
+                {
+                    "quadrant": 3,
+                    "ring": 0,
+                    "label": "Jira",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 3,
+                    "ring": 0,
+                    "label": "TeamCity",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 3,
+                    "ring": 1,
+                    "label": "Github Action",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 3,
+                    "ring": 1,
+                    "label": "Bitbucket Pipeline",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 3,
+                    "ring": 0,
+                    "label": "OpenAPI 3.0",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 3,
+                    "ring": 0,
+                    "label": "Sentry",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 3,
+                    "ring": 0,
+                    "label": "Swagger UI",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 3,
+                    "ring": 0,
+                    "label": "Scrum",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 3,
+                    "ring": 0,
+                    "label": "Kanban",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 3,
+                    "ring": 1,
+                    "label": "Artifactory",
+                    "active": true,
+                    "moved": 1
+                },
+                {
+                    "quadrant": 3,
+                    "ring": 0,
+                    "label": "Kibana",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 3,
+                    "ring": 0,
+                    "label": "Grafana",
+                    "active": true,
+                    "moved": 0
+                },
+            ]
+            //ENTRIES
+        });
+    </script>
+
+

@@ -1,0 +1,9 @@
+{{ define "main" }}
+    {{ if eq .Type "page" }}
+        {{- partial "page.html" . -}}
+    {{ else if eq .Type "radar"}}
+        {{- partial "radar.html" . -}}
+    {{ else }}
+        {{- partial "list.html" . -}}
+    {{ end }}
+{{ end }}

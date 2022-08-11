@@ -15,6 +15,12 @@ enableRobotsTXT = true
     weight = 1
 
   [[menu.main]]
+    identifier = "radar"
+    url = "/radar/"
+    name = "Тех. радар"
+    weight = 2
+
+  [[menu.main]]
     identifier = "github"
     url = "https://github.com/updevru"
     weight = 3
@@ -43,7 +49,7 @@ enableRobotsTXT = true
 
   # You can use this to inject any HTML in the <head> tag.
   # Ideal usecase for this is to import custom js/css or add your analytics snippet
-  customHeadHTML = ""
+  customHeadHTML = '<link rel="stylesheet" type="text/css" href="/css/base.css">'
 
   # Keywords relevant for SEO
   metaKeywords = ["ладыгин сергей"]
