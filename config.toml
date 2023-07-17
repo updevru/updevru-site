@@ -42,7 +42,7 @@ enableRobotsTXT = true
   avatarSize = "size-l"
 
   # Description to display on homepage
-  description = "PHP Lead developer"
+  description = "Lead developer"
 
   # Accent color is displayed when you hover over <a> tags
   accentColor = "#FF4D4D"
