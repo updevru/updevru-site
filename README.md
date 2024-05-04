@@ -14,4 +14,4 @@ docker run -it --rm -p 1313:1313 -v $(pwd):/src -u $(id -u ${USER}):$(id -g ${US
 
 ### Тех. радар
 
-Для построение радара используется скрипт https://github.com/zalando/tech-radar
+Для построения радара используется скрипт https://github.com/zalando/tech-radar

@@ -21,24 +21,37 @@ enableRobotsTXT = true
     weight = 1
 
   [[menu.main]]
+    identifier = "articles"
+    url = "/articles/"
+    name = "Статьи"
+    weight = 2
+
+  [[menu.main]]
     identifier = "radar"
     url = "/radar/"
     name = "Тех. радар"
-    weight = 2
+    weight = 3
 
   [[menu.main]]
     identifier = "github"
     url = "https://github.com/updevru"
-    weight = 3
+    weight = 4
 
     # We use feather-icons: https://feathericons.com/
     pre = "<span data-feather='github'></span>"
 
   [[menu.main]]
+    identifier = "telegram"
+    url = "https://t.me/updevru"
+    weight = 5
+
+    pre = "<span data-feather='send'></span>"
+
+  [[menu.main]]
     identifier = "rss"
     pre = "<span data-feather='rss'></span>"
     url = "/index.xml"
-    weight = 4
+    weight = 6
 
 [params]
   # URL for the avatar on homepage
@@ -84,8 +97,10 @@ enableRobotsTXT = true
   # Footer text
   footer = "Ладыгин Сергей"
 
+  togglePreviousAndNextButtons = "true"
+
   socialIcons = [
       {name = "github-brands", url = "https://github.com/updevru" },
-      {name = "telegram-brands", url = "https://t.me/updev"},
+      {name = "telegram-brands", url = "https://t.me/updevru"},
       {name = "vk-brands", url = "https://vk.com/updevru"},
     ]

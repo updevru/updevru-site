@@ -1,6 +1,6 @@
 
     <script src="/tech-radar/js/d3.v4.min.js"></script>
-    <script src="/tech-radar/js/radar-0.6.js"></script>
+    <script src="/tech-radar/js/radar-0.8.js"></script>
 
     <svg id="radar"></svg>
     <div class="post-content">
@@ -56,6 +56,13 @@
                     "label": "PostgreSQL",
                     "active": true,
                     "moved": 0
+                },
+                {
+                    "quadrant": 2,
+                    "ring": 2,
+                    "label": "YDB",
+                    "active": true,
+                    "moved": 1
                 },
                 {
                     "quadrant": 2,
@@ -124,6 +131,13 @@
                 {
                     "quadrant": 0,
                     "ring": 0,
+                    "label": "Gin",
+                    "active": true,
+                    "moved": 1
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 0,
                     "label": "Golang",
                     "active": true,
                     "moved": 0
@@ -161,12 +175,19 @@
                     "ring": 1,
                     "label": "Hugo",
                     "active": true,
-                    "moved": 1
+                    "moved": 0
                 },
                 {
                     "quadrant": 0,
                     "ring": 1,
                     "label": "Protobuf",
+                    "active": true,
+                    "moved": 0
+                },
+                {
+                    "quadrant": 0,
+                    "ring": 1,
+                    "label": "gRPC",
                     "active": true,
                     "moved": 1
                 },
@@ -391,7 +412,7 @@
                 },
                 {
                     "quadrant": 3,
-                    "ring": 1,
+                    "ring": 0,
                     "label": "Github Action",
                     "active": true,
                     "moved": 0
@@ -399,6 +420,13 @@
                 {
                     "quadrant": 3,
                     "ring": 1,
+                    "label": "Serverless",
+                    "active": true,
+                    "moved": 1
+                },
+                {
+                    "quadrant": 3,
+                    "ring": 0,
                     "label": "Bitbucket Pipeline",
                     "active": true,
                     "moved": 0
@@ -440,10 +468,10 @@
                 },
                 {
                     "quadrant": 3,
-                    "ring": 1,
+                    "ring": 0,
                     "label": "Artifactory",
                     "active": true,
-                    "moved": 1
+                    "moved": 0
                 },
                 {
                     "quadrant": 3,
