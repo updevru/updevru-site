@@ -4,7 +4,10 @@ type: post
 tags: ["Strapi"]
 date: 2024-04-25T19:30:00+03:00
 showTableOfContents: true
+image: "/articles/strapi-install/cover.png"
 ---
+
+![](cover.png)
 
 [Strapi](https://strapi.io/) - популярная open-source headless CMS.
 Написана на JavaScript/TypeScript, максимально настраивается под ваши задачи.
@@ -58,7 +61,7 @@ COPY package-lock.json .
 
 RUN npm install --force
 
-COPY ./ .
+COPY .. .
 RUN npm run build
 
 

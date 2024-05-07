@@ -2,3 +2,20 @@
     width: 100%;
     text-align: center;
 }
+
+.article-title {
+    margin-bottom: 45px;
+}
+
+.article-title .article-link {
+    font-size: 1.8em;
+    margin: 0.67em 0;
+    display: block;
+    font-weight: bold;
+}
+.article-title img {
+    width: 100%;
+}
+.article-title p {
+    color: gray;
+}

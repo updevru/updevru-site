@@ -4,7 +4,10 @@ type: post
 tags: ["Strapi", "Docker Swarm"]
 date: 2024-05-04T20:30:00+03:00
 showTableOfContents: true
+image: "/articles/strapi-docker-swarm/cover.png"
 ---
+
+![](cover.png)
 
 После того как мы создали первую версию нашего приложения, создали Dockerfile, проверили работоспособность приложения в контейнере,
 встает вопрос как это выложить на prod, и самое главное как его обновлять далее.

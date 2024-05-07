@@ -2,9 +2,12 @@
 title: "Strapi - Подключение S3 хранилища для файлов"
 type: post
 tags: ["Strapi"]
-date: 2024-05-01T20:00:00+03:00
+date: 2024-05-06T20:00:00+03:00
 showTableOfContents: true
+image: "/articles/strapi-s3/cover.png"
 ---
+
+![](cover.png)
 
 Для хранения загружаемых файлов будем использовать S3 хранилище - Yandex Object Storage.
 В нем можно дешево хранить файлы и быстро раздавать их через cdn.
