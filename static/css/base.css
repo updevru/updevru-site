@@ -19,3 +19,12 @@
 .article-title p {
     color: gray;
 }
+
+@media (max-width: 700px) {
+    .article-title .article-link {
+        font-size: 1.5em;
+    }
+    .post-header-section h1 {
+        font-size: 1.5em;
+    }
+}
