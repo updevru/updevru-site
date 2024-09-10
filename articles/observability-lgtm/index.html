@@ -1,0 +1,81 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{--accent-color:#FF4D4D}</style><title>Observability и LGTM Stack</title>
+<meta name=description content="Lead developer"><meta name=keywords content='ладыгин сергей,observability'><meta property="og:url" content="https://updev.ru/articles/observability-lgtm/"><meta property="og:type" content="website"><meta property="og:title" content="Observability и LGTM Stack"><meta property="og:description" content="Lead developer"><meta property="og:image" content="/articles/observability-lgtm/cover.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Observability и LGTM Stack"><meta name=twitter:description content="Lead developer"><meta property="twitter:domain" content="https://updev.ru/articles/observability-lgtm/"><meta property="twitter:url" content="https://updev.ru/articles/observability-lgtm/"><meta name=twitter:image content="/articles/observability-lgtm/cover.png"><link rel=canonical href=https://updev.ru/articles/observability-lgtm/><link rel=stylesheet type=text/css href=https://updev.ru//css/normalize.min.css media=print onload='this.media="all"'><link rel=stylesheet type=text/css href=https://updev.ru//css/main.css><link disabled id=dark-theme rel=stylesheet href=https://updev.ru//css/dark.css><script src=https://updev.ru//js/svg-injector.min.js></script><script src=https://updev.ru//js/feather-icons.min.js></script><script src=https://updev.ru//js/main.js></script><link rel=stylesheet type=text/css href=/css/base.css><script type=text/javascript>(function(e,t,n,s,o,i,a){e[o]=e[o]||function(){(e[o].a=e[o].a||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym"),ym(89940266,"init",{clickmap:!0,trackLinks:!0,accurateTrackBounce:!0})</script><noscript><div><img src=https://mc.yandex.ru/watch/89940266 style=position:absolute;left:-9999px alt></div></noscript></head><body><script type=text/javascript>setThemeByUserPref()</script><header class=header><nav class=header-nav><div class=avatar><a href=https://updev.ru/><img src=https://updev.ru//images/avatar.jpg alt=avatar></a></div><div class=nav-title><a class=nav-brand href=https://updev.ru/>Ладыгин Сергей</a></div><div class=nav-links><div class=nav-link><a href=https://updev.ru/projects/>Проекты</a></div><div class=nav-link><a href=https://updev.ru/articles/>Статьи</a></div><div class=nav-link><a href=https://updev.ru/radar/>Тех. радар</a></div><div class=nav-link><a href=https://github.com/updevru><span data-feather=github></span></a></div><div class=nav-link><a href=https://t.me/updevru><span data-feather=send></span></a></div><div class=nav-link><a href=https://updev.ru/index.xml><span data-feather=rss></span></a></div><span class=nav-icons-divider></span><div class="nav-link dark-theme-toggle"><a><span id=theme-toggle-icon data-feather=moon></span></a></div><div class=nav-link id=hamburger-menu-toggle><a><span data-feather=menu></span></a></div><ul class="nav-hamburger-list visibility-hidden"><li class=nav-item><a href=https://updev.ru/projects/>Проекты</a></li><li class=nav-item><a href=https://updev.ru/articles/>Статьи</a></li><li class=nav-item><a href=https://updev.ru/radar/>Тех. радар</a></li><li class=nav-item><a href=https://github.com/updevru><span data-feather=github></span></a></li><li class=nav-item><a href=https://t.me/updevru><span data-feather=send></span></a></li><li class=nav-item><a href=https://updev.ru/index.xml><span data-feather=rss></span></a></li><li class="nav-item dark-theme-toggle"><a><span id=theme-toggle-icon data-feather=moon></span></a></li></ul></div></nav></header><main id=content class=page-type-post><div class="post container"><div class=post-header-section><h1>Observability и LGTM Stack</h1><small role=doc-subtitle></small><p class=post-date>сентября 10, 2024</p><ul class=post-tags><li class=post-tag><a href=https://updev.ru/tags/observability>observability</a></li></ul></div><div class=post-content><p><p><img src=cover.png alt></p><p><a href=../observability-go>В первой части</a> мы научились отправлять данные из Go приложения в формате OpenTelemetry, теперь необходимо их сохранять
+для визуализации и анализа. Для этого есть множество готовых инструментов, рассмотрим LGTM Stack.</p><p>LGTM — это популярный стек для мониторинга и наблюдаемости, включающий в себя Loki, Grafana, Tempo и Mimir.
+Этот набор инструментов обеспечивает полный цикл сбора и визуализации метрик, логов и трассировок.</p><h2 id=что-такое-lgtm-stack>Что такое LGTM Stack?</h2><p><strong>Loki</strong> — система для агрегирования и анализа логов.</p><p><strong>Grafana</strong> — платформа для визуализации метрик, логов и трассировок.</p><p><strong>Tempo</strong> — система для распределенного трейсинга.</p><p><strong>Mimir</strong> — система для долговременного хранения метрик.</p><p>Сразу можно посмотреть на готовый <a href=https://github.com/updevru/go-micro-kit-example/blob/master/docker-compose.yaml>docker-compose.yaml</a>
+и конфигурацию каждого из <a href=https://github.com/updevru/go-micro-kit-example/tree/master/deployments>компонентов</a>.</p><p><em>Помечу, это готовый пример для использования на этапе разработки, не для production.</em></p><h2 id=как-это-работает>Как это работает?</h2><p>Приложение отправляет данные OpenTelemetry (логи, метрики и трассировки) в OpenTelemetry collector на единый адрес.
+Коллектор раскладывает эти данные по разным системам.</p><p><img src=otel-diagram.svg alt></p><p>Пример конфигурации коллектора:</p><pre tabindex=0><code>receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+exporters:
+  otlp:
+    endpoint: tempo:4317
+    tls:
+      insecure: true
+  prometheusremotewrite:
+    endpoint: http://mimir:9009/api/v1/push
+    tls:
+      insecure: true
+  otlphttp:
+    endpoint: http://loki:3100/otlp
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [otlp]
+    metrics:
+      receivers: [otlp]
+      exporters: [ prometheusremotewrite ]
+    logs:
+      receivers: [ otlp ]
+      exporters: [ otlphttp ]
+</code></pre><p>Как правило, коллектор устанавливается рядом с приложением на сервере, если серверов несколько то на каждом сервере.</p><p>Коллектор полезен тем, что это единый endpoint на который можно отправлять все данные, плюс он умеет их сжимать/модифицировать и эффективно передавать дальше.</p><h2 id=запуск>Запуск</h2><p>Наиболее удобный способ запуска docker compose, ниже кратки пример файла.
+Полной готовый файл <a href=https://github.com/updevru/go-micro-kit-example/blob/master/docker-compose.yaml>тут</a>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#39;3.7&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>app</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>golang:1.21</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;8180:8180&#34;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;8280:8280/tcp&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>./:/app/</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>working_dir</span>: <span style=color:#ae81ff>/app</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>command</span>: <span style=color:#ae81ff>go run main.go</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>tempo</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>grafana/tempo:latest</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>command</span>: [ <span style=color:#e6db74>&#34;-config.file=/etc/tempo.yaml&#34;</span> ]
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>./deployments/tempo/tempo.yaml:/etc/tempo.yaml</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>otel-collector</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>otel/opentelemetry-collector-contrib</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>./deployments/otelcol/config.yaml:/etc/otelcol-contrib/config.yaml</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>mimir</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>grafana/mimir:latest</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>./deployments/mimir/mimir.yaml:/etc/mimir/mimir.yaml</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>command</span>: <span style=color:#e6db74>&#34;--config.file=/etc/mimir/mimir.yaml&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>grafana</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>grafana/grafana:latest</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;3000:3000&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>loki</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>grafana/loki:3.1.0</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>./deployments/loki/config.yaml:/mnt/config/loki.yml</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>command</span>: --<span style=color:#ae81ff>config.file=/mnt/config/loki.yml</span>
+</span></span></code></pre></div><p>Сервис app - это пример приложения который отправляет данные в формате OpenTelemetry.</p><p>Стартуем:</p><pre tabindex=0><code>docker compose up -d
+</code></pre><h2 id=настройки-визуализации>Настройки визуализации</h2><p>После установки всех компонентов, вы можете использовать Grafana для визуализации ваших метрик, логов и трассировок.
+Добавьте соответствующие источники данных в Grafana и создайте дашборды для мониторинга ваших сервисов.</p></p></div></div><aside class=post-toc><nav id=toc><nav id=TableOfContents><ul><li><ul><li><a href=#что-такое-lgtm-stack>Что такое LGTM Stack?</a></li><li><a href=#как-это-работает>Как это работает?</a></li><li><a href=#запуск>Запуск</a></li><li><a href=#настройки-визуализации>Настройки визуализации</a></li></ul></li></ul></nav></nav></aside></main><footer class=footer><span>&copy; 2024 Ладыгин Сергей</span>
+<span>Made with &#10084;&#65039; using <a target=_blank href=https://github.com/526avijitgupta/gokarna>Gokarna</a></span></footer></body></html>

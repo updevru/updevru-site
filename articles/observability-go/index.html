@@ -1,0 +1,160 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{--accent-color:#FF4D4D}</style><title>Observability в Go приложении</title>
+<meta name=description content="Lead developer"><meta name=keywords content='ладыгин сергей,observability,go'><meta property="og:url" content="https://updev.ru/articles/observability-go/"><meta property="og:type" content="website"><meta property="og:title" content="Observability в Go приложении"><meta property="og:description" content="Lead developer"><meta property="og:image" content="/articles/observability-go/cover.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Observability в Go приложении"><meta name=twitter:description content="Lead developer"><meta property="twitter:domain" content="https://updev.ru/articles/observability-go/"><meta property="twitter:url" content="https://updev.ru/articles/observability-go/"><meta name=twitter:image content="/articles/observability-go/cover.png"><link rel=canonical href=https://updev.ru/articles/observability-go/><link rel=stylesheet type=text/css href=https://updev.ru//css/normalize.min.css media=print onload='this.media="all"'><link rel=stylesheet type=text/css href=https://updev.ru//css/main.css><link disabled id=dark-theme rel=stylesheet href=https://updev.ru//css/dark.css><script src=https://updev.ru//js/svg-injector.min.js></script><script src=https://updev.ru//js/feather-icons.min.js></script><script src=https://updev.ru//js/main.js></script><link rel=stylesheet type=text/css href=/css/base.css><script type=text/javascript>(function(e,t,n,s,o,i,a){e[o]=e[o]||function(){(e[o].a=e[o].a||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym"),ym(89940266,"init",{clickmap:!0,trackLinks:!0,accurateTrackBounce:!0})</script><noscript><div><img src=https://mc.yandex.ru/watch/89940266 style=position:absolute;left:-9999px alt></div></noscript></head><body><script type=text/javascript>setThemeByUserPref()</script><header class=header><nav class=header-nav><div class=avatar><a href=https://updev.ru/><img src=https://updev.ru//images/avatar.jpg alt=avatar></a></div><div class=nav-title><a class=nav-brand href=https://updev.ru/>Ладыгин Сергей</a></div><div class=nav-links><div class=nav-link><a href=https://updev.ru/projects/>Проекты</a></div><div class=nav-link><a href=https://updev.ru/articles/>Статьи</a></div><div class=nav-link><a href=https://updev.ru/radar/>Тех. радар</a></div><div class=nav-link><a href=https://github.com/updevru><span data-feather=github></span></a></div><div class=nav-link><a href=https://t.me/updevru><span data-feather=send></span></a></div><div class=nav-link><a href=https://updev.ru/index.xml><span data-feather=rss></span></a></div><span class=nav-icons-divider></span><div class="nav-link dark-theme-toggle"><a><span id=theme-toggle-icon data-feather=moon></span></a></div><div class=nav-link id=hamburger-menu-toggle><a><span data-feather=menu></span></a></div><ul class="nav-hamburger-list visibility-hidden"><li class=nav-item><a href=https://updev.ru/projects/>Проекты</a></li><li class=nav-item><a href=https://updev.ru/articles/>Статьи</a></li><li class=nav-item><a href=https://updev.ru/radar/>Тех. радар</a></li><li class=nav-item><a href=https://github.com/updevru><span data-feather=github></span></a></li><li class=nav-item><a href=https://t.me/updevru><span data-feather=send></span></a></li><li class=nav-item><a href=https://updev.ru/index.xml><span data-feather=rss></span></a></li><li class="nav-item dark-theme-toggle"><a><span id=theme-toggle-icon data-feather=moon></span></a></li></ul></div></nav></header><main id=content class=page-type-post><div class="post container"><div class=post-header-section><h1>Observability в Go приложении</h1><small role=doc-subtitle></small><p class=post-date>августа 17, 2024</p><ul class=post-tags><li class=post-tag><a href=https://updev.ru/tags/observability>observability</a></li><li class=post-tag><a href=https://updev.ru/tags/go>go</a></li></ul></div><div class=post-content><p><p><img src=cover.png alt></p><p>В современном мире микро-сервисной архитектуры и распределённых систем понятие наблюдаемости (observability)
+стало ключевым фактором успешной эксплуатации и поддержания работоспособности приложений.
+Наблюдаемость позволяет вам получить глубокое понимание состояния ваших систем через метрики, логи и трассировки.</p><h2 id=теория>Теория</h2><p>Что такое наблюдаемость? Наблюдаемость — это способность системы обеспечивать прозрачность своего внутреннего состояния на основе внешних данных,
+таких как логи, метрики и трассировки.</p><p>Основные составляющие наблюдаемости:</p><ol><li>Метрики: Количественные данные, измеряющие производительность системы (например, количество запросов в секунду, использование памяти).</li><li>Логи: Записи событий, происходящих в системе (например, ошибки, информационные сообщения).</li><li>Трассировки: Данные о пути выполнения запросов через различные компоненты системы.</li></ol><p><strong>OpenTelemetry: Единое решение для observability</strong></p><p><a href=https://opentelemetry.io/>OpenTelemetry</a> — это проект с открытым исходным кодом, который предоставляет инструменты
+и стандарты для сбора, обработки и экспорта телеметрических данных (метрик, логов и трассировок) из приложений.</p><p>Единый SDK: для сбора метрик, логов и трассировок.
+Поддержка множества языков: включая Java, JavaScript, Python, Go, и другие.
+Совместимость с различными бэкендами: такими как Prometheus, Jaeger, ClickHouse и другие.
+Расширяемость и гибкость: можно настроить и расширить под свои нужды.</p><p><strong>Интеграция с другими системами</strong></p><p>OpenTelemetry интегрируется с множеством систем мониторинга и логирования, что позволяет использовать данные
+с различных источников для получения полного представления о состоянии системы.</p><ul><li>Prometheus и Grafana Mimir: для сбора метрик</li><li>Jaeger и Grafana Tempo: для распределённых трассировок</li><li>ElasticSearch, Grafana Loki или Splunk: для логирования</li></ul><p><strong>Взаимодействия разных систем</strong></p><p>Когда в ваши сервисы интегрированы OpenTelemetry, то вы сможете увидеть все взаимодействия между этими
+системами - совершаемые операции, обращения по REST или gRCP, запросы в БД и т.д.
+Одним словом - наблюдаемость ваших систем сильно повышается, и это очень сильно помогает разбираться с проблемами и инцидентами.</p><h2 id=настройка-в-go-приложении>Настройка в Go приложении</h2><p>Рассмотрим пример настройки OpenTelemetry для Go-приложения.
+Логи, метрики и трейсы будем отправлять в OpenTelemetry collector.</p><p><strong>1) Настройка провайдеров и экспортеров</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>telemetry</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;context&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;go.opentelemetry.io/otel&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;go.opentelemetry.io/otel/log/global&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>SetupOTel</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>) (<span style=color:#a6e22e>err</span> <span style=color:#66d9ef>error</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>prop</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>newPropagator</span>()
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>otel</span>.<span style=color:#a6e22e>SetTextMapPropagator</span>(<span style=color:#a6e22e>prop</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Set up trace provider.
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>tracerProvider</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>newTraceProvider</span>(<span style=color:#a6e22e>ctx</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>otel</span>.<span style=color:#a6e22e>SetTracerProvider</span>(<span style=color:#a6e22e>tracerProvider</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Set up meter provider.
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>meterProvider</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>newMeterProvider</span>(<span style=color:#a6e22e>ctx</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>otel</span>.<span style=color:#a6e22e>SetMeterProvider</span>(<span style=color:#a6e22e>meterProvider</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Set up logger provider.
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>loggerProvider</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>newLoggerProvider</span>(<span style=color:#a6e22e>ctx</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>global</span>.<span style=color:#a6e22e>SetLoggerProvider</span>(<span style=color:#a6e22e>loggerProvider</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Упрощенный вариант, полный пример <a href=https://github.com/updevru/go-micro-kit/blob/main/telemetry/otel.go>тут</a>.</p><p><strong>2) Настройка логгера</strong></p><p>Реализуем отправку логов в output и параллельно в collector.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>telemetry</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>slogmulti</span> <span style=color:#e6db74>&#34;github.com/samber/slog-multi&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;go.opentelemetry.io/contrib/bridges/otelslog&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;go.opentelemetry.io/otel/log/global&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;log/slog&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;os&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>CreateLogger</span>() <span style=color:#f92672>*</span><span style=color:#a6e22e>slog</span>.<span style=color:#a6e22e>Logger</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>slog</span>.<span style=color:#a6e22e>New</span>(
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>slogmulti</span>.<span style=color:#a6e22e>Fanout</span>(
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>slog</span>.<span style=color:#a6e22e>NewJSONHandler</span>(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stdout</span>, <span style=color:#66d9ef>nil</span>),
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>otelslog</span>.<span style=color:#a6e22e>NewHandler</span>(<span style=color:#e6db74>&#34;main&#34;</span>, <span style=color:#a6e22e>otelslog</span>.<span style=color:#a6e22e>WithLoggerProvider</span>(<span style=color:#a6e22e>global</span>.<span style=color:#a6e22e>GetLoggerProvider</span>())),
+</span></span><span style=display:flex><span>        ),
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><strong>3) Настройка отправки трейсов</strong></p><p>Реализуем отправку трейсов в collector.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>telemetry</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;go.opentelemetry.io/otel&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;go.opentelemetry.io/otel/trace&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>CreateTracer</span>() <span style=color:#a6e22e>trace</span>.<span style=color:#a6e22e>Tracer</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>otel</span>.<span style=color:#a6e22e>Tracer</span>(<span style=color:#e6db74>&#34;main&#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><strong>4) Настройка отправки метрик</strong></p><p>Реализуем отправку метрики в collector.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>telemetry</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;go.opentelemetry.io/otel&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;go.opentelemetry.io/otel/metric&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>CreateMeter</span>() <span style=color:#a6e22e>metric</span>.<span style=color:#a6e22e>Meter</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>otel</span>.<span style=color:#a6e22e>Meter</span>(<span style=color:#e6db74>&#34;main&#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><strong>Пример использования</strong></p><p>Сделаем самый простой пример использования, чтобы показать как работать со всеми тремя составляющими.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;context&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;github.com/updevru/go-micro-kit/telemetry&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;log/slog&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;os&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;os/signal&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;syscall&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;time&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>stop</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>signal</span>.<span style=color:#a6e22e>NotifyContext</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Background</span>(), <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Interrupt</span>, <span style=color:#a6e22e>syscall</span>.<span style=color:#a6e22e>SIGTERM</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>stop</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Set up OpenTelemetry.
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>telemetry</span>.<span style=color:#a6e22e>SetupOTel</span>(<span style=color:#a6e22e>ctx</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>logger</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>telemetry</span>.<span style=color:#a6e22e>CreateLogger</span>()
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>tracer</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>telemetry</span>.<span style=color:#a6e22e>CreateTracer</span>()
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>meter</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>telemetry</span>.<span style=color:#a6e22e>CreateMeter</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>logger</span>.<span style=color:#a6e22e>InfoContext</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#e6db74>&#34;Log message&#34;</span>, <span style=color:#a6e22e>slog</span>.<span style=color:#a6e22e>String</span>(<span style=color:#e6db74>&#34;key&#34;</span>, <span style=color:#e6db74>&#34;value&#34;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>start</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>()
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>histogram</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>meter</span>.<span style=color:#a6e22e>Float64Histogram</span>(<span style=color:#e6db74>&#34;operation.duration&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>ctxSpan</span>, <span style=color:#a6e22e>span</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>tracer</span>.<span style=color:#a6e22e>Start</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#e6db74>&#34;operation.Name&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>OperationName</span>(<span style=color:#a6e22e>ctxSpan</span>); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>RecordError</span>(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>logger</span>.<span style=color:#a6e22e>ErrorContext</span>(<span style=color:#a6e22e>ctxSpan</span>, <span style=color:#e6db74>&#34;Error message&#34;</span>, <span style=color:#a6e22e>slog</span>.<span style=color:#a6e22e>String</span>(<span style=color:#e6db74>&#34;error&#34;</span>, <span style=color:#a6e22e>err</span>.<span style=color:#a6e22e>String</span>()))
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>End</span>()
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>histogram</span>.<span style=color:#a6e22e>Record</span>(<span style=color:#a6e22e>ctxSpan</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Since</span>(<span style=color:#a6e22e>start</span>).<span style=color:#a6e22e>Seconds</span>())
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>С одной стороны получается достаточно громоздкая конструкция, но на самом деле существуют плагины и middleware
+для разных библиотек которые подобное делают автоматически - для http/gRPC клиентов и серверов,
+для библиотек к базам данных и т.д.</p><h2 id=подключение-плагинов-и-библиотек>Подключение плагинов и библиотек</h2><p>Для разных библиотек существуют плагины и расширения для автоматического инструментирования.
+Ниже приведу пример лишь некоторых наиболее распространенных и которые сам использовал.</p><p><strong>GORM</strong></p><p>Плагин автоматически оборачивает в трейс каждый запрос к БД и после этого в трейсах виден сам SQL запрос,
+сколько он длился и какие были параметры.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>database</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;github.com/uptrace/opentelemetry-go-extra/otelgorm&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>driver</span> <span style=color:#e6db74>&#34;gorm.io/driver/postgres&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;gorm.io/gorm&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;gorm.io/gorm/logger&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Connect</span>(<span style=color:#a6e22e>dsn</span> <span style=color:#66d9ef>string</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>gorm</span>.<span style=color:#a6e22e>DB</span>, <span style=color:#66d9ef>error</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>cfg</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>gorm</span>.<span style=color:#a6e22e>Config</span>{
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>Logger</span>:      <span style=color:#a6e22e>logger</span>.<span style=color:#a6e22e>Default</span>.<span style=color:#a6e22e>LogMode</span>(<span style=color:#a6e22e>logger</span>.<span style=color:#a6e22e>Silent</span>),
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>QueryFields</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>db</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>gorm</span>.<span style=color:#a6e22e>Open</span>(<span style=color:#a6e22e>driver</span>.<span style=color:#a6e22e>Open</span>(<span style=color:#a6e22e>dsn</span>), <span style=color:#a6e22e>cfg</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>==</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Use</span>(<span style=color:#a6e22e>otelgorm</span>.<span style=color:#a6e22e>NewPlugin</span>())
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>db</span>, <span style=color:#a6e22e>err</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><strong>gRPC</strong></p><p>Плагин автоматически создает по трейсу на каждый запрос.
+Соответственно через контекст трейсы связываются и внутри gRPC запроса будут видны все запросы БД.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>server</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;google.golang.org/grpc&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>srv</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>NewServer</span>(
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>StatsHandler</span>(<span style=color:#a6e22e>otelgrpc</span>.<span style=color:#a6e22e>NewServerHandler</span>()),
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><p><strong>HTTP Client</strong></p><p>Автоматически оборачивает в трейсы все вызовы и фиксирует в нем сам запрос, статус ответа и время выполнения.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>http2</span> <span style=color:#e6db74>&#34;github.com/go-kit/kit/transport/http&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;net/http&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>NewHttpClient</span>() <span style=color:#a6e22e>http2</span>.<span style=color:#a6e22e>HTTPClient</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>Client</span>{<span style=color:#a6e22e>Transport</span>: <span style=color:#a6e22e>otelhttp</span>.<span style=color:#a6e22e>NewTransport</span>(<span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>DefaultTransport</span>)}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><em>В статье куски кода упрощены для лучшего понимания сути,
+полную версию работающего кода можно <a href=https://github.com/updevru/go-micro-kit>найти в репозитории</a></em>.</p></p></div></div><aside class=post-toc><nav id=toc><nav id=TableOfContents><ul><li><ul><li><a href=#теория>Теория</a></li><li><a href=#настройка-в-go-приложении>Настройка в Go приложении</a></li><li><a href=#подключение-плагинов-и-библиотек>Подключение плагинов и библиотек</a></li></ul></li></ul></nav></nav></aside></main><footer class=footer><span>&copy; 2024 Ладыгин Сергей</span>
+<span>Made with &#10084;&#65039; using <a target=_blank href=https://github.com/526avijitgupta/gokarna>Gokarna</a></span></footer></body></html>

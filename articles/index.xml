@@ -1,10 +1,60 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on Ладыгин Сергей</title><link>https://updev.ru/articles/</link><description>Recent content in Articles on Ладыгин Сергей</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Mon, 06 May 2024 20:00:00 +0300</lastBuildDate><atom:link href="https://updev.ru/articles/index.xml" rel="self" type="application/rss+xml"/><item><title>Strapi - Подключение S3 хранилища для файлов</title><link>https://updev.ru/articles/strapi-s3/</link><pubDate>Mon, 06 May 2024 20:00:00 +0300</pubDate><guid>https://updev.ru/articles/strapi-s3/</guid><description>Для хранения загружаемых файлов будем использовать S3 хранилище - Yandex Object Storage. В нем можно дешево хранить файлы и быстро раздавать их через cdn.
-Инструкция по созданию бакета и настройке публичного доступа.
-Устанавливаем в strapi плагин для работы с S3 хранилищем.
-npm install @strapi/provider-upload-aws-s3 --save Добавить конфигурацию для подключения к S3 Yandex cloud
-module.exports = ({ env }) =&amp;gt; ({ upload: { config: { provider: &amp;#39;aws-s3&amp;#39;, providerOptions: { credentials: { accessKeyId: env(&amp;#39;YC_ACCESS_KEY_ID&amp;#39;), secretAccessKey: env(&amp;#39;YC_ACCESS_SECRET&amp;#39;), }, region: &amp;#39;ru-central1&amp;#39;, endpoint: &amp;#39;https://storage.</description></item><item><title>Strapi - запуск в Docker Swarm</title><link>https://updev.ru/articles/strapi-docker-swarm/</link><pubDate>Sat, 04 May 2024 20:30:00 +0300</pubDate><guid>https://updev.ru/articles/strapi-docker-swarm/</guid><description>После того как мы создали первую версию нашего приложения, создали Dockerfile, проверили работоспособность приложения в контейнере, встает вопрос как это выложить на prod, и самое главное как его обновлять далее.
-Можно пойти в Kubernetes, но если у вас не большое количество сервисов и нет отдельного отдела для обслуживания Kubernetes, то следуют выбрать что-то попроще.
-Экосистема Docker предлагает нам воспользоваться режимом swarm mode. В этом режиме, можно объединять несколько серверов в один кластер и запускать в нем приложения точно так же, как на одном сервере.</description></item><item><title>Strapi - установка и настройка</title><link>https://updev.ru/articles/strapi-install/</link><pubDate>Thu, 25 Apr 2024 19:30:00 +0300</pubDate><guid>https://updev.ru/articles/strapi-install/</guid><description>Strapi - популярная open-source headless CMS. Написана на JavaScript/TypeScript, максимально настраивается под ваши задачи.
-Данная CMS создана для разработчиков, она делает множество рутинной работы, позволяя сосредоточится на бизнес логике. Подходит для широкого спектра задач - блоги, порталы, каталоги, сервисы, магазины и многое другое.
-Создание проекта Исчерпывающая инструкция на официальном сайте, тут я приведу краткий набор команд и действия. Демо приложение будет находиться в папке strapi.
-Перед установкой у вас должно быть:</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on Ладыгин Сергей</title><link>https://updev.ru/articles/</link><description>Recent content in Articles on Ладыгин Сергей</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Tue, 10 Sep 2024 21:24:00 +0300</lastBuildDate><atom:link href="https://updev.ru/articles/index.xml" rel="self" type="application/rss+xml"/><item><title>Observability и LGTM Stack</title><link>https://updev.ru/articles/observability-lgtm/</link><pubDate>Tue, 10 Sep 2024 21:24:00 +0300</pubDate><guid>https://updev.ru/articles/observability-lgtm/</guid><description>&lt;p>&lt;img src="cover.png" alt="">&lt;/p>
+&lt;p>&lt;a href="../observability-go">В первой части&lt;/a> мы научились отправлять данные из Go приложения в формате OpenTelemetry, теперь необходимо их сохранять
+для визуализации и анализа. Для этого есть множество готовых инструментов, рассмотрим LGTM Stack.&lt;/p>
+&lt;p>LGTM — это популярный стек для мониторинга и наблюдаемости, включающий в себя Loki, Grafana, Tempo и Mimir.
+Этот набор инструментов обеспечивает полный цикл сбора и визуализации метрик, логов и трассировок.&lt;/p>
+&lt;h2 id="что-такое-lgtm-stack">Что такое LGTM Stack?&lt;/h2>
+&lt;p>&lt;strong>Loki&lt;/strong> — система для агрегирования и анализа логов.&lt;/p></description></item><item><title>Observability в Go приложении</title><link>https://updev.ru/articles/observability-go/</link><pubDate>Sat, 17 Aug 2024 20:05:00 +0300</pubDate><guid>https://updev.ru/articles/observability-go/</guid><description>&lt;p>&lt;img src="cover.png" alt="">&lt;/p>
+&lt;p>В современном мире микро-сервисной архитектуры и распределённых систем понятие наблюдаемости (observability)
+стало ключевым фактором успешной эксплуатации и поддержания работоспособности приложений.
+Наблюдаемость позволяет вам получить глубокое понимание состояния ваших систем через метрики, логи и трассировки.&lt;/p>
+&lt;h2 id="теория">Теория&lt;/h2>
+&lt;p>Что такое наблюдаемость? Наблюдаемость — это способность системы обеспечивать прозрачность своего внутреннего состояния на основе внешних данных,
+таких как логи, метрики и трассировки.&lt;/p>
+&lt;p>Основные составляющие наблюдаемости:&lt;/p>
+&lt;ol>
+&lt;li>Метрики: Количественные данные, измеряющие производительность системы (например, количество запросов в секунду, использование памяти).&lt;/li>
+&lt;li>Логи: Записи событий, происходящих в системе (например, ошибки, информационные сообщения).&lt;/li>
+&lt;li>Трассировки: Данные о пути выполнения запросов через различные компоненты системы.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>OpenTelemetry: Единое решение для observability&lt;/strong>&lt;/p></description></item><item><title>Strapi - Подключение S3 хранилища для файлов</title><link>https://updev.ru/articles/strapi-s3/</link><pubDate>Mon, 06 May 2024 20:00:00 +0300</pubDate><guid>https://updev.ru/articles/strapi-s3/</guid><description>&lt;p>&lt;img src="cover.png" alt="">&lt;/p>
+&lt;p>Для хранения загружаемых файлов будем использовать S3 хранилище - Yandex Object Storage.
+В нем можно дешево хранить файлы и быстро раздавать их через cdn.&lt;/p>
+&lt;p>Инструкция по &lt;a href="https://yandex.cloud/ru/docs/storage/operations/buckets/create">созданию бакета&lt;/a>
+и настройке &lt;a href="https://yandex.cloud/ru/docs/storage/operations/buckets/bucket-availability">публичного доступа&lt;/a>.&lt;/p>
+&lt;p>Устанавливаем в strapi плагин для работы с S3 хранилищем.&lt;/p>
+&lt;pre tabindex="0">&lt;code>npm install @strapi/provider-upload-aws-s3 --save
+&lt;/code>&lt;/pre>&lt;p>Добавить конфигурацию для подключения к S3 Yandex cloud&lt;/p>
+&lt;pre tabindex="0">&lt;code>module.exports = ({ env }) =&amp;gt; ({
+ upload: {
+ config: {
+ provider: &amp;#39;aws-s3&amp;#39;,
+ providerOptions: {
+ credentials: {
+ accessKeyId: env(&amp;#39;YC_ACCESS_KEY_ID&amp;#39;),
+ secretAccessKey: env(&amp;#39;YC_ACCESS_SECRET&amp;#39;),
+ },
+ region: &amp;#39;ru-central1&amp;#39;,
+ endpoint: &amp;#39;https://storage.yandexcloud.net&amp;#39;,
+ params: {
+ Bucket: env(&amp;#39;YC_BUCKET&amp;#39;),
+ },
+ },
+ },
+ },
+});
+&lt;/code>&lt;/pre>&lt;p>Для отображения в галерее превью картинок необходимо добавить домен в доверенный.&lt;/p></description></item><item><title>Strapi - запуск в Docker Swarm</title><link>https://updev.ru/articles/strapi-docker-swarm/</link><pubDate>Sat, 04 May 2024 20:30:00 +0300</pubDate><guid>https://updev.ru/articles/strapi-docker-swarm/</guid><description>&lt;p>&lt;img src="cover.png" alt="">&lt;/p>
+&lt;p>После того как мы создали первую версию нашего приложения, создали Dockerfile, проверили работоспособность приложения в контейнере,
+встает вопрос как это выложить на prod, и самое главное как его обновлять далее.&lt;/p>
+&lt;p>Можно пойти в Kubernetes, но если у вас не большое количество сервисов и нет отдельного отдела для обслуживания Kubernetes,
+то следуют выбрать что-то попроще.&lt;/p>
+&lt;p>Экосистема Docker предлагает нам воспользоваться режимом &lt;a href="https://docs.docker.com/engine/swarm/">swarm mode&lt;/a>.
+В этом режиме, можно объединять несколько серверов в один кластер и запускать в нем приложения точно так же, как на одном сервере.&lt;/p></description></item><item><title>Strapi - установка и настройка</title><link>https://updev.ru/articles/strapi-install/</link><pubDate>Thu, 25 Apr 2024 19:30:00 +0300</pubDate><guid>https://updev.ru/articles/strapi-install/</guid><description>&lt;p>&lt;img src="cover.png" alt="">&lt;/p>
+&lt;p>&lt;a href="https://strapi.io/">Strapi&lt;/a> - популярная open-source headless CMS.
+Написана на JavaScript/TypeScript, максимально настраивается под ваши задачи.&lt;/p>
+&lt;p>Данная CMS создана для разработчиков, она делает множество рутинной работы, позволяя сосредоточится на бизнес логике.
+Подходит для широкого спектра задач - блоги, порталы, каталоги, сервисы, магазины и многое другое.&lt;/p>
+&lt;h2 id="создание-проекта">Создание проекта&lt;/h2>
+&lt;p>Исчерпывающая инструкция на &lt;a href="https://docs.strapi.io/dev-docs/installation/cli">официальном сайте&lt;/a>,
+тут я приведу краткий набор команд и действия. Демо приложение будет находиться в папке strapi.&lt;/p>
+&lt;p>Перед установкой у вас должно быть:&lt;/p></description></item></channel></rss>

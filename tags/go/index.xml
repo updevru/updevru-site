@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go on Ладыгин Сергей</title><link>https://updev.ru/tags/go/</link><description>Recent content in Go on Ладыгин Сергей</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Sat, 17 Aug 2024 20:05:00 +0300</lastBuildDate><atom:link href="https://updev.ru/tags/go/index.xml" rel="self" type="application/rss+xml"/><item><title>Observability в Go приложении</title><link>https://updev.ru/articles/observability-go/</link><pubDate>Sat, 17 Aug 2024 20:05:00 +0300</pubDate><guid>https://updev.ru/articles/observability-go/</guid><description>&lt;p>&lt;img src="cover.png" alt="">&lt;/p>
+&lt;p>В современном мире микро-сервисной архитектуры и распределённых систем понятие наблюдаемости (observability)
+стало ключевым фактором успешной эксплуатации и поддержания работоспособности приложений.
+Наблюдаемость позволяет вам получить глубокое понимание состояния ваших систем через метрики, логи и трассировки.&lt;/p>
+&lt;h2 id="теория">Теория&lt;/h2>
+&lt;p>Что такое наблюдаемость? Наблюдаемость — это способность системы обеспечивать прозрачность своего внутреннего состояния на основе внешних данных,
+таких как логи, метрики и трассировки.&lt;/p>
+&lt;p>Основные составляющие наблюдаемости:&lt;/p>
+&lt;ol>
+&lt;li>Метрики: Количественные данные, измеряющие производительность системы (например, количество запросов в секунду, использование памяти).&lt;/li>
+&lt;li>Логи: Записи событий, происходящих в системе (например, ошибки, информационные сообщения).&lt;/li>
+&lt;li>Трассировки: Данные о пути выполнения запросов через различные компоненты системы.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>OpenTelemetry: Единое решение для observability&lt;/strong>&lt;/p></description></item></channel></rss>
