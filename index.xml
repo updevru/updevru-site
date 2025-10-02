@@ -1,31 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ладыгин Сергей</title><link>https://updev.ru/</link><description>Recent content on Ладыгин Сергей</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Tue, 10 Sep 2024 21:24:00 +0300</lastBuildDate><atom:link href="https://updev.ru/index.xml" rel="self" type="application/rss+xml"/><item><title>Observability и LGTM Stack</title><link>https://updev.ru/articles/observability-lgtm/</link><pubDate>Tue, 10 Sep 2024 21:24:00 +0300</pubDate><guid>https://updev.ru/articles/observability-lgtm/</guid><description>&lt;p>&lt;img src="cover.png" alt="">&lt;/p>
-&lt;p>&lt;a href="../observability-go">В первой части&lt;/a> мы научились отправлять данные из Go приложения в формате OpenTelemetry, теперь необходимо их сохранять
-для визуализации и анализа. Для этого есть множество готовых инструментов, рассмотрим LGTM Stack.&lt;/p>
-&lt;p>LGTM — это популярный стек для мониторинга и наблюдаемости, включающий в себя Loki, Grafana, Tempo и Mimir.
-Этот набор инструментов обеспечивает полный цикл сбора и визуализации метрик, логов и трассировок.&lt;/p>
-&lt;h2 id="что-такое-lgtm-stack">Что такое LGTM Stack?&lt;/h2>
-&lt;p>&lt;strong>Loki&lt;/strong> — система для агрегирования и анализа логов.&lt;/p></description></item><item><title>Observability в Go приложении</title><link>https://updev.ru/articles/observability-go/</link><pubDate>Sat, 17 Aug 2024 20:05:00 +0300</pubDate><guid>https://updev.ru/articles/observability-go/</guid><description>&lt;p>&lt;img src="cover.png" alt="">&lt;/p>
-&lt;p>В современном мире микро-сервисной архитектуры и распределённых систем понятие наблюдаемости (observability)
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ладыгин Сергей</title><link>https://updev.ru/</link><description>Recent content on Ладыгин Сергей</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Tue, 10 Sep 2024 21:24:00 +0300</lastBuildDate><atom:link href="https://updev.ru/index.xml" rel="self" type="application/rss+xml"/><item><title>Observability и LGTM Stack</title><link>https://updev.ru/articles/observability-lgtm/</link><pubDate>Tue, 10 Sep 2024 21:24:00 +0300</pubDate><guid>https://updev.ru/articles/observability-lgtm/</guid><description>&lt;p&gt;&lt;img src="cover.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="../observability-go"&gt;В первой части&lt;/a&gt; мы научились отправлять данные из Go приложения в формате OpenTelemetry, теперь необходимо их сохранять
+для визуализации и анализа. Для этого есть множество готовых инструментов, рассмотрим LGTM Stack.&lt;/p&gt;
+&lt;p&gt;LGTM — это популярный стек для мониторинга и наблюдаемости, включающий в себя Loki, Grafana, Tempo и Mimir.
+Этот набор инструментов обеспечивает полный цикл сбора и визуализации метрик, логов и трассировок.&lt;/p&gt;
+&lt;h2 id="что-такое-lgtm-stack"&gt;Что такое LGTM Stack?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Loki&lt;/strong&gt; — система для агрегирования и анализа логов.&lt;/p&gt;</description></item><item><title>Observability в Go приложении</title><link>https://updev.ru/articles/observability-go/</link><pubDate>Sat, 17 Aug 2024 20:05:00 +0300</pubDate><guid>https://updev.ru/articles/observability-go/</guid><description>&lt;p&gt;&lt;img src="cover.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;В современном мире микро-сервисной архитектуры и распределённых систем понятие наблюдаемости (observability)
 стало ключевым фактором успешной эксплуатации и поддержания работоспособности приложений.
-Наблюдаемость позволяет вам получить глубокое понимание состояния ваших систем через метрики, логи и трассировки.&lt;/p>
-&lt;h2 id="теория">Теория&lt;/h2>
-&lt;p>Что такое наблюдаемость? Наблюдаемость — это способность системы обеспечивать прозрачность своего внутреннего состояния на основе внешних данных,
-таких как логи, метрики и трассировки.&lt;/p>
-&lt;p>Основные составляющие наблюдаемости:&lt;/p>
-&lt;ol>
-&lt;li>Метрики: Количественные данные, измеряющие производительность системы (например, количество запросов в секунду, использование памяти).&lt;/li>
-&lt;li>Логи: Записи событий, происходящих в системе (например, ошибки, информационные сообщения).&lt;/li>
-&lt;li>Трассировки: Данные о пути выполнения запросов через различные компоненты системы.&lt;/li>
-&lt;/ol>
-&lt;p>&lt;strong>OpenTelemetry: Единое решение для observability&lt;/strong>&lt;/p></description></item><item><title>Strapi - Подключение S3 хранилища для файлов</title><link>https://updev.ru/articles/strapi-s3/</link><pubDate>Mon, 06 May 2024 20:00:00 +0300</pubDate><guid>https://updev.ru/articles/strapi-s3/</guid><description>&lt;p>&lt;img src="cover.png" alt="">&lt;/p>
-&lt;p>Для хранения загружаемых файлов будем использовать S3 хранилище - Yandex Object Storage.
-В нем можно дешево хранить файлы и быстро раздавать их через cdn.&lt;/p>
-&lt;p>Инструкция по &lt;a href="https://yandex.cloud/ru/docs/storage/operations/buckets/create">созданию бакета&lt;/a>
-и настройке &lt;a href="https://yandex.cloud/ru/docs/storage/operations/buckets/bucket-availability">публичного доступа&lt;/a>.&lt;/p>
-&lt;p>Устанавливаем в strapi плагин для работы с S3 хранилищем.&lt;/p>
-&lt;pre tabindex="0">&lt;code>npm install @strapi/provider-upload-aws-s3 --save
-&lt;/code>&lt;/pre>&lt;p>Добавить конфигурацию для подключения к S3 Yandex cloud&lt;/p>
-&lt;pre tabindex="0">&lt;code>module.exports = ({ env }) =&amp;gt; ({
+Наблюдаемость позволяет вам получить глубокое понимание состояния ваших систем через метрики, логи и трассировки.&lt;/p&gt;
+&lt;h2 id="теория"&gt;Теория&lt;/h2&gt;
+&lt;p&gt;Что такое наблюдаемость? Наблюдаемость — это способность системы обеспечивать прозрачность своего внутреннего состояния на основе внешних данных,
+таких как логи, метрики и трассировки.&lt;/p&gt;
+&lt;p&gt;Основные составляющие наблюдаемости:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Метрики: Количественные данные, измеряющие производительность системы (например, количество запросов в секунду, использование памяти).&lt;/li&gt;
+&lt;li&gt;Логи: Записи событий, происходящих в системе (например, ошибки, информационные сообщения).&lt;/li&gt;
+&lt;li&gt;Трассировки: Данные о пути выполнения запросов через различные компоненты системы.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;OpenTelemetry: Единое решение для observability&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Strapi - Подключение S3 хранилища для файлов</title><link>https://updev.ru/articles/strapi-s3/</link><pubDate>Mon, 06 May 2024 20:00:00 +0300</pubDate><guid>https://updev.ru/articles/strapi-s3/</guid><description>&lt;p&gt;&lt;img src="cover.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;Для хранения загружаемых файлов будем использовать S3 хранилище - Yandex Object Storage.
+В нем можно дешево хранить файлы и быстро раздавать их через cdn.&lt;/p&gt;
+&lt;p&gt;Инструкция по &lt;a href="https://yandex.cloud/ru/docs/storage/operations/buckets/create"&gt;созданию бакета&lt;/a&gt;
+и настройке &lt;a href="https://yandex.cloud/ru/docs/storage/operations/buckets/bucket-availability"&gt;публичного доступа&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Устанавливаем в strapi плагин для работы с S3 хранилищем.&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;npm install @strapi/provider-upload-aws-s3 --save
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Добавить конфигурацию для подключения к S3 Yandex cloud&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;module.exports = ({ env }) =&amp;gt; ({
  upload: {
  config: {
  provider: &amp;#39;aws-s3&amp;#39;,
@@ -43,80 +43,80 @@
  },
  },
 });
-&lt;/code>&lt;/pre>&lt;p>Для отображения в галерее превью картинок необходимо добавить домен в доверенный.&lt;/p></description></item><item><title>Strapi - запуск в Docker Swarm</title><link>https://updev.ru/articles/strapi-docker-swarm/</link><pubDate>Sat, 04 May 2024 20:30:00 +0300</pubDate><guid>https://updev.ru/articles/strapi-docker-swarm/</guid><description>&lt;p>&lt;img src="cover.png" alt="">&lt;/p>
-&lt;p>После того как мы создали первую версию нашего приложения, создали Dockerfile, проверили работоспособность приложения в контейнере,
-встает вопрос как это выложить на prod, и самое главное как его обновлять далее.&lt;/p>
-&lt;p>Можно пойти в Kubernetes, но если у вас не большое количество сервисов и нет отдельного отдела для обслуживания Kubernetes,
-то следуют выбрать что-то попроще.&lt;/p>
-&lt;p>Экосистема Docker предлагает нам воспользоваться режимом &lt;a href="https://docs.docker.com/engine/swarm/">swarm mode&lt;/a>.
-В этом режиме, можно объединять несколько серверов в один кластер и запускать в нем приложения точно так же, как на одном сервере.&lt;/p></description></item><item><title>Strapi - установка и настройка</title><link>https://updev.ru/articles/strapi-install/</link><pubDate>Thu, 25 Apr 2024 19:30:00 +0300</pubDate><guid>https://updev.ru/articles/strapi-install/</guid><description>&lt;p>&lt;img src="cover.png" alt="">&lt;/p>
-&lt;p>&lt;a href="https://strapi.io/">Strapi&lt;/a> - популярная open-source headless CMS.
-Написана на JavaScript/TypeScript, максимально настраивается под ваши задачи.&lt;/p>
-&lt;p>Данная CMS создана для разработчиков, она делает множество рутинной работы, позволяя сосредоточится на бизнес логике.
-Подходит для широкого спектра задач - блоги, порталы, каталоги, сервисы, магазины и многое другое.&lt;/p>
-&lt;h2 id="создание-проекта">Создание проекта&lt;/h2>
-&lt;p>Исчерпывающая инструкция на &lt;a href="https://docs.strapi.io/dev-docs/installation/cli">официальном сайте&lt;/a>,
-тут я приведу краткий набор команд и действия. Демо приложение будет находиться в папке strapi.&lt;/p>
-&lt;p>Перед установкой у вас должно быть:&lt;/p></description></item><item><title>Dkron PHP Client</title><link>https://updev.ru/projects/dkron-php-client/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/projects/dkron-php-client/</guid><description>&lt;p>Клиент на PHP для API &lt;a href="https://dkron.io">Dkron&lt;/a>.&lt;/p>
-&lt;p>Бибилиотека использует последнюю версию API, работает на актуальных версиях PHP и 100% кода покрыто unit тестами.&lt;/p>
-&lt;p>&lt;a href="https://dkron.io/api/">Документация API Dkron&lt;/a>&lt;/p>
-&lt;h3 id="пример-подключения-библиотеки-в-проект">Пример подключения библиотеки в проект&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>composer require updevru/dkron-php-client
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="пример-использования">Пример использования&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">use&lt;/span> &lt;span style="color:#a6e22e">Http\Client\Curl\Client&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">use&lt;/span> &lt;span style="color:#a6e22e">Nyholm\Psr7\Factory\Psr17Factory&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">use&lt;/span> &lt;span style="color:#a6e22e">Updevru\Dkron\ApiClient&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">use&lt;/span> &lt;span style="color:#a6e22e">Updevru\Dkron\Endpoint\EndpointCollection&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$client &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Updevru\Dkron\ApiClient&lt;/span>(
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Updevru\Dkron\Endpoint\EndpointCollection&lt;/span>(
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;url&amp;#39;&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;http://localhost&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;login&amp;#39;&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">null&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;password&amp;#39;&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">null&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ),
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Http\Client\Curl\Client&lt;/span>(),
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Nyholm\Psr7\Factory\Psr17Factory&lt;/span>(),
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Nyholm\Psr7\Factory\Psr17Factory&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$api &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">\Updevru\Dkron\Api&lt;/span>($client, &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">\Updevru\Dkron\Serializer\JMSSerializer&lt;/span>());
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$jobs &lt;span style="color:#f92672">=&lt;/span> $api&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">jobs&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">getJobs&lt;/span>();
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$newJob &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">\Updevru\Dkron\Dto\JobDto&lt;/span>();
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$newJob&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">setName&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;test_job&amp;#39;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$newJob&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">setSchedule&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;*/2 * * * * *&amp;#39;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$newJob&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">setConcurrency&lt;/span>(&lt;span style="color:#a6e22e">\Updevru\Dkron\Dto\JobDto&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">CONCURRENCY_FORBID&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$newJob&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">setExecutor&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;shell&amp;#39;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$newJob&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">setExecutorConfig&lt;/span>([&lt;span style="color:#e6db74">&amp;#39;command&amp;#39;&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;echo Hello&amp;#39;&lt;/span>]);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$api&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">jobs&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">createOrUpdateJob&lt;/span>($newJob);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$api&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">jobs&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">toggleJob&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;test_job&amp;#39;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$api&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">jobs&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">deleteJob&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;test_job&amp;#39;&lt;/span>);
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Более подробная информация на &lt;a href="https://github.com/updevru/dkron-php-client">Github&lt;/a>.&lt;/p></description></item><item><title>PolkovnikBot</title><link>https://updev.ru/projects/polkovnik-bot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/projects/polkovnik-bot/</guid><description>&lt;p>Бот-помощник по организации работы команды и увеличения ее эффективности.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Для отображения в галерее превью картинок необходимо добавить домен в доверенный.&lt;/p&gt;</description></item><item><title>Strapi - запуск в Docker Swarm</title><link>https://updev.ru/articles/strapi-docker-swarm/</link><pubDate>Sat, 04 May 2024 20:30:00 +0300</pubDate><guid>https://updev.ru/articles/strapi-docker-swarm/</guid><description>&lt;p&gt;&lt;img src="cover.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;После того как мы создали первую версию нашего приложения, создали Dockerfile, проверили работоспособность приложения в контейнере,
+встает вопрос как это выложить на prod, и самое главное как его обновлять далее.&lt;/p&gt;
+&lt;p&gt;Можно пойти в Kubernetes, но если у вас не большое количество сервисов и нет отдельного отдела для обслуживания Kubernetes,
+то следуют выбрать что-то попроще.&lt;/p&gt;
+&lt;p&gt;Экосистема Docker предлагает нам воспользоваться режимом &lt;a href="https://docs.docker.com/engine/swarm/"&gt;swarm mode&lt;/a&gt;.
+В этом режиме, можно объединять несколько серверов в один кластер и запускать в нем приложения точно так же, как на одном сервере.&lt;/p&gt;</description></item><item><title>Strapi - установка и настройка</title><link>https://updev.ru/articles/strapi-install/</link><pubDate>Thu, 25 Apr 2024 19:30:00 +0300</pubDate><guid>https://updev.ru/articles/strapi-install/</guid><description>&lt;p&gt;&lt;img src="cover.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://strapi.io/"&gt;Strapi&lt;/a&gt; - популярная open-source headless CMS.
+Написана на JavaScript/TypeScript, максимально настраивается под ваши задачи.&lt;/p&gt;
+&lt;p&gt;Данная CMS создана для разработчиков, она делает множество рутинной работы, позволяя сосредоточится на бизнес логике.
+Подходит для широкого спектра задач - блоги, порталы, каталоги, сервисы, магазины и многое другое.&lt;/p&gt;
+&lt;h2 id="создание-проекта"&gt;Создание проекта&lt;/h2&gt;
+&lt;p&gt;Исчерпывающая инструкция на &lt;a href="https://docs.strapi.io/dev-docs/installation/cli"&gt;официальном сайте&lt;/a&gt;,
+тут я приведу краткий набор команд и действия. Демо приложение будет находиться в папке strapi.&lt;/p&gt;
+&lt;p&gt;Перед установкой у вас должно быть:&lt;/p&gt;</description></item><item><title>Dkron PHP Client</title><link>https://updev.ru/projects/dkron-php-client/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/projects/dkron-php-client/</guid><description>&lt;p&gt;Клиент на PHP для API &lt;a href="https://dkron.io"&gt;Dkron&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Бибилиотека использует последнюю версию API, работает на актуальных версиях PHP и 100% кода покрыто unit тестами.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://dkron.io/api/"&gt;Документация API Dkron&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="пример-подключения-библиотеки-в-проект"&gt;Пример подключения библиотеки в проект&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;composer require updevru/dkron-php-client
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="пример-использования"&gt;Пример использования&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-php" data-lang="php"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Http\Client\Curl\Client&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Nyholm\Psr7\Factory\Psr17Factory&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Updevru\Dkron\ApiClient&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Updevru\Dkron\Endpoint\EndpointCollection&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$client &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Updevru\Dkron\ApiClient&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Updevru\Dkron\Endpoint\EndpointCollection&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;url&amp;#39;&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&amp;gt;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;http://localhost&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;login&amp;#39;&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&amp;gt;&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;null&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;password&amp;#39;&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&amp;gt;&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;null&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Http\Client\Curl\Client&lt;/span&gt;(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Nyholm\Psr7\Factory\Psr17Factory&lt;/span&gt;(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Nyholm\Psr7\Factory\Psr17Factory&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$api &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;\Updevru\Dkron\Api&lt;/span&gt;($client, &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;\Updevru\Dkron\Serializer\JMSSerializer&lt;/span&gt;());
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$jobs &lt;span style="color:#f92672"&gt;=&lt;/span&gt; $api&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;jobs&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;getJobs&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$newJob &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;\Updevru\Dkron\Dto\JobDto&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$newJob&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;setName&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;test_job&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$newJob&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;setSchedule&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;*/2 * * * * *&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$newJob&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;setConcurrency&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;\Updevru\Dkron\Dto\JobDto&lt;/span&gt;&lt;span style="color:#f92672"&gt;::&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;CONCURRENCY_FORBID&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$newJob&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;setExecutor&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;shell&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$newJob&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;setExecutorConfig&lt;/span&gt;([&lt;span style="color:#e6db74"&gt;&amp;#39;command&amp;#39;&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&amp;gt;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;echo Hello&amp;#39;&lt;/span&gt;]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$api&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;jobs&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;createOrUpdateJob&lt;/span&gt;($newJob);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$api&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;jobs&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;toggleJob&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;test_job&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$api&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;jobs&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;deleteJob&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;test_job&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Более подробная информация на &lt;a href="https://github.com/updevru/dkron-php-client"&gt;Github&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>PolkovnikBot</title><link>https://updev.ru/projects/polkovnik-bot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/projects/polkovnik-bot/</guid><description>&lt;p&gt;Бот-помощник по организации работы команды и увеличения ее эффективности.
 Помогает не пропускать важные события (встречи, дни рождения), контролирует списание врмение в задачах (если кто то забыл - напоминает),
-уведомляет о важных событиях (новые pull request, релизы, сборки и прочее).&lt;/p>
-&lt;p>Проект призван забрать на себя часть рутины, которую можно автоматизировать.&lt;/p>
-&lt;h2 id="возможности">Возможности&lt;/h2>
-&lt;ul>
-&lt;li>Напоминание о списании времени по задачам&lt;/li>
-&lt;li>Уведомление об отпусках&lt;/li>
-&lt;li>Отправка сообщений в командный чат по расписанию&lt;/li>
-&lt;li>Интеграция с такс трекерами - Jira&lt;/li>
-&lt;li>Интеграция с чатами - Telegram, Webex&lt;/li>
-&lt;li>Управление через web интерфейс&lt;/li>
-&lt;li>API&lt;/li>
-&lt;/ul>
-&lt;p>Более подробная информация на &lt;a href="https://github.com/updevru/polkovnik-bot">Github&lt;/a>.&lt;/p></description></item><item><title>Мое резюме</title><link>https://updev.ru/resume/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/resume/</guid><description>&lt;p>Меня зовут Ладыгин Сергей, я профессионально занимаюсь разработкой более 15 лет. Муж и отец 3 детей.
-Увлекаюсь спортом - велосипед, плавание, баскетбол, волейбол, настольный тенис.&lt;/p>
-&lt;h2 id="компетенции">Компетенции&lt;/h2>
-&lt;h3 id="1-программирование">1. Программирование&lt;/h3>
-&lt;p>Мои основные языки программирование - &lt;strong>PHP&lt;/strong> и &lt;strong>JavaScript&lt;/strong>. В них я лучше всего разбираюсь и дольше всего с ними работаю.
-В этом стэке много работал с фреймворками &lt;strong>Symfony&lt;/strong> и Laravel.&lt;/p>
-&lt;p>Последнее время в основном программирую на &lt;strong>TypeScript&lt;/strong>, &lt;strong>Go&lt;/strong> и &lt;strong>Node&lt;/strong>.&lt;/p>
-&lt;p>Знаю базы данных &lt;strong>PostgreSQL&lt;/strong>, &lt;strong>MySQL&lt;/strong> и &lt;strong>MongoDB&lt;/strong> на хорошем уровне (оптимизация, хранимые процедуры, условные индексы и прочее).&lt;/p></description></item></channel></rss>
+уведомляет о важных событиях (новые pull request, релизы, сборки и прочее).&lt;/p&gt;
+&lt;p&gt;Проект призван забрать на себя часть рутины, которую можно автоматизировать.&lt;/p&gt;
+&lt;h2 id="возможности"&gt;Возможности&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Напоминание о списании времени по задачам&lt;/li&gt;
+&lt;li&gt;Уведомление об отпусках&lt;/li&gt;
+&lt;li&gt;Отправка сообщений в командный чат по расписанию&lt;/li&gt;
+&lt;li&gt;Интеграция с такс трекерами - Jira&lt;/li&gt;
+&lt;li&gt;Интеграция с чатами - Telegram, Webex&lt;/li&gt;
+&lt;li&gt;Управление через web интерфейс&lt;/li&gt;
+&lt;li&gt;API&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Более подробная информация на &lt;a href="https://github.com/updevru/polkovnik-bot"&gt;Github&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Мое резюме</title><link>https://updev.ru/resume/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/resume/</guid><description>&lt;p&gt;Меня зовут Ладыгин Сергей, я профессионально занимаюсь разработкой более 15 лет. Муж и отец 3 детей.
+Увлекаюсь спортом - велосипед, плавание, баскетбол, волейбол, настольный тенис.&lt;/p&gt;
+&lt;h2 id="компетенции"&gt;Компетенции&lt;/h2&gt;
+&lt;h3 id="1-программирование"&gt;1. Программирование&lt;/h3&gt;
+&lt;p&gt;Мои основные языки программирование - &lt;strong&gt;PHP&lt;/strong&gt; и &lt;strong&gt;JavaScript&lt;/strong&gt;. В них я лучше всего разбираюсь и дольше всего с ними работаю.
+В этом стэке много работал с фреймворками &lt;strong&gt;Symfony&lt;/strong&gt; и Laravel.&lt;/p&gt;
+&lt;p&gt;Последнее время в основном программирую на &lt;strong&gt;TypeScript&lt;/strong&gt;, &lt;strong&gt;Go&lt;/strong&gt; и &lt;strong&gt;Node&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Знаю базы данных &lt;strong&gt;PostgreSQL&lt;/strong&gt;, &lt;strong&gt;MySQL&lt;/strong&gt; и &lt;strong&gt;MongoDB&lt;/strong&gt; на хорошем уровне (оптимизация, хранимые процедуры, условные индексы и прочее).&lt;/p&gt;</description></item></channel></rss>

@@ -1,56 +1,56 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Проекты on Ладыгин Сергей</title><link>https://updev.ru/projects/</link><description>Recent content in Проекты on Ладыгин Сергей</description><generator>Hugo</generator><language>ru-ru</language><atom:link href="https://updev.ru/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Dkron PHP Client</title><link>https://updev.ru/projects/dkron-php-client/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/projects/dkron-php-client/</guid><description>&lt;p>Клиент на PHP для API &lt;a href="https://dkron.io">Dkron&lt;/a>.&lt;/p>
-&lt;p>Бибилиотека использует последнюю версию API, работает на актуальных версиях PHP и 100% кода покрыто unit тестами.&lt;/p>
-&lt;p>&lt;a href="https://dkron.io/api/">Документация API Dkron&lt;/a>&lt;/p>
-&lt;h3 id="пример-подключения-библиотеки-в-проект">Пример подключения библиотеки в проект&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>composer require updevru/dkron-php-client
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="пример-использования">Пример использования&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">use&lt;/span> &lt;span style="color:#a6e22e">Http\Client\Curl\Client&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">use&lt;/span> &lt;span style="color:#a6e22e">Nyholm\Psr7\Factory\Psr17Factory&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">use&lt;/span> &lt;span style="color:#a6e22e">Updevru\Dkron\ApiClient&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">use&lt;/span> &lt;span style="color:#a6e22e">Updevru\Dkron\Endpoint\EndpointCollection&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$client &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Updevru\Dkron\ApiClient&lt;/span>(
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Updevru\Dkron\Endpoint\EndpointCollection&lt;/span>(
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;url&amp;#39;&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;http://localhost&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;login&amp;#39;&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">null&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;password&amp;#39;&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">null&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ),
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Http\Client\Curl\Client&lt;/span>(),
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Nyholm\Psr7\Factory\Psr17Factory&lt;/span>(),
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Nyholm\Psr7\Factory\Psr17Factory&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$api &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">\Updevru\Dkron\Api&lt;/span>($client, &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">\Updevru\Dkron\Serializer\JMSSerializer&lt;/span>());
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$jobs &lt;span style="color:#f92672">=&lt;/span> $api&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">jobs&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">getJobs&lt;/span>();
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$newJob &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">\Updevru\Dkron\Dto\JobDto&lt;/span>();
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$newJob&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">setName&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;test_job&amp;#39;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$newJob&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">setSchedule&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;*/2 * * * * *&amp;#39;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$newJob&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">setConcurrency&lt;/span>(&lt;span style="color:#a6e22e">\Updevru\Dkron\Dto\JobDto&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">CONCURRENCY_FORBID&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$newJob&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">setExecutor&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;shell&amp;#39;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$newJob&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">setExecutorConfig&lt;/span>([&lt;span style="color:#e6db74">&amp;#39;command&amp;#39;&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;echo Hello&amp;#39;&lt;/span>]);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$api&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">jobs&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">createOrUpdateJob&lt;/span>($newJob);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$api&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">jobs&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">toggleJob&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;test_job&amp;#39;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$api&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">jobs&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">deleteJob&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;test_job&amp;#39;&lt;/span>);
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Более подробная информация на &lt;a href="https://github.com/updevru/dkron-php-client">Github&lt;/a>.&lt;/p></description></item><item><title>PolkovnikBot</title><link>https://updev.ru/projects/polkovnik-bot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/projects/polkovnik-bot/</guid><description>&lt;p>Бот-помощник по организации работы команды и увеличения ее эффективности.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Проекты on Ладыгин Сергей</title><link>https://updev.ru/projects/</link><description>Recent content in Проекты on Ладыгин Сергей</description><generator>Hugo</generator><language>ru-ru</language><atom:link href="https://updev.ru/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Dkron PHP Client</title><link>https://updev.ru/projects/dkron-php-client/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/projects/dkron-php-client/</guid><description>&lt;p&gt;Клиент на PHP для API &lt;a href="https://dkron.io"&gt;Dkron&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Бибилиотека использует последнюю версию API, работает на актуальных версиях PHP и 100% кода покрыто unit тестами.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://dkron.io/api/"&gt;Документация API Dkron&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="пример-подключения-библиотеки-в-проект"&gt;Пример подключения библиотеки в проект&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;composer require updevru/dkron-php-client
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="пример-использования"&gt;Пример использования&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-php" data-lang="php"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Http\Client\Curl\Client&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Nyholm\Psr7\Factory\Psr17Factory&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Updevru\Dkron\ApiClient&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Updevru\Dkron\Endpoint\EndpointCollection&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$client &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Updevru\Dkron\ApiClient&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Updevru\Dkron\Endpoint\EndpointCollection&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;url&amp;#39;&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&amp;gt;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;http://localhost&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;login&amp;#39;&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&amp;gt;&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;null&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;password&amp;#39;&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&amp;gt;&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;null&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Http\Client\Curl\Client&lt;/span&gt;(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Nyholm\Psr7\Factory\Psr17Factory&lt;/span&gt;(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Nyholm\Psr7\Factory\Psr17Factory&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$api &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;\Updevru\Dkron\Api&lt;/span&gt;($client, &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;\Updevru\Dkron\Serializer\JMSSerializer&lt;/span&gt;());
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$jobs &lt;span style="color:#f92672"&gt;=&lt;/span&gt; $api&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;jobs&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;getJobs&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$newJob &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;\Updevru\Dkron\Dto\JobDto&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$newJob&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;setName&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;test_job&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$newJob&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;setSchedule&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;*/2 * * * * *&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$newJob&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;setConcurrency&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;\Updevru\Dkron\Dto\JobDto&lt;/span&gt;&lt;span style="color:#f92672"&gt;::&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;CONCURRENCY_FORBID&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$newJob&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;setExecutor&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;shell&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$newJob&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;setExecutorConfig&lt;/span&gt;([&lt;span style="color:#e6db74"&gt;&amp;#39;command&amp;#39;&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&amp;gt;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;echo Hello&amp;#39;&lt;/span&gt;]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$api&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;jobs&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;createOrUpdateJob&lt;/span&gt;($newJob);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$api&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;jobs&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;toggleJob&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;test_job&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$api&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;jobs&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;deleteJob&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;test_job&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Более подробная информация на &lt;a href="https://github.com/updevru/dkron-php-client"&gt;Github&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>PolkovnikBot</title><link>https://updev.ru/projects/polkovnik-bot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/projects/polkovnik-bot/</guid><description>&lt;p&gt;Бот-помощник по организации работы команды и увеличения ее эффективности.
 Помогает не пропускать важные события (встречи, дни рождения), контролирует списание врмение в задачах (если кто то забыл - напоминает),
-уведомляет о важных событиях (новые pull request, релизы, сборки и прочее).&lt;/p>
-&lt;p>Проект призван забрать на себя часть рутины, которую можно автоматизировать.&lt;/p>
-&lt;h2 id="возможности">Возможности&lt;/h2>
-&lt;ul>
-&lt;li>Напоминание о списании времени по задачам&lt;/li>
-&lt;li>Уведомление об отпусках&lt;/li>
-&lt;li>Отправка сообщений в командный чат по расписанию&lt;/li>
-&lt;li>Интеграция с такс трекерами - Jira&lt;/li>
-&lt;li>Интеграция с чатами - Telegram, Webex&lt;/li>
-&lt;li>Управление через web интерфейс&lt;/li>
-&lt;li>API&lt;/li>
-&lt;/ul>
-&lt;p>Более подробная информация на &lt;a href="https://github.com/updevru/polkovnik-bot">Github&lt;/a>.&lt;/p></description></item></channel></rss>
+уведомляет о важных событиях (новые pull request, релизы, сборки и прочее).&lt;/p&gt;
+&lt;p&gt;Проект призван забрать на себя часть рутины, которую можно автоматизировать.&lt;/p&gt;
+&lt;h2 id="возможности"&gt;Возможности&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Напоминание о списании времени по задачам&lt;/li&gt;
+&lt;li&gt;Уведомление об отпусках&lt;/li&gt;
+&lt;li&gt;Отправка сообщений в командный чат по расписанию&lt;/li&gt;
+&lt;li&gt;Интеграция с такс трекерами - Jira&lt;/li&gt;
+&lt;li&gt;Интеграция с чатами - Telegram, Webex&lt;/li&gt;
+&lt;li&gt;Управление через web интерфейс&lt;/li&gt;
+&lt;li&gt;API&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Более подробная информация на &lt;a href="https://github.com/updevru/polkovnik-bot"&gt;Github&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>
