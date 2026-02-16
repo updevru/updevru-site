@@ -2,9 +2,9 @@
 &lt;p&gt;Бибилиотека использует последнюю версию API, работает на актуальных версиях PHP и 100% кода покрыто unit тестами.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://dkron.io/api/"&gt;Документация API Dkron&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id="пример-подключения-библиотеки-в-проект"&gt;Пример подключения библиотеки в проект&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;composer require updevru/dkron-php-client
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;composer require updevru/dkron-php-client
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="пример-использования"&gt;Пример использования&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-php" data-lang="php"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Http\Client\Curl\Client&lt;/span&gt;;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-php" data-lang="php"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Http\Client\Curl\Client&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Nyholm\Psr7\Factory\Psr17Factory&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Updevru\Dkron\ApiClient&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;use&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Updevru\Dkron\Endpoint\EndpointCollection&lt;/span&gt;;
@@ -39,7 +39,20 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$api&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;jobs&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;toggleJob&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;test_job&amp;#39;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$api&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;jobs&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;deleteJob&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;test_job&amp;#39;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Более подробная информация на &lt;a href="https://github.com/updevru/dkron-php-client"&gt;Github&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>PolkovnikBot</title><link>https://updev.ru/projects/polkovnik-bot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/projects/polkovnik-bot/</guid><description>&lt;p&gt;Бот-помощник по организации работы команды и увеличения ее эффективности.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Более подробная информация на &lt;a href="https://github.com/updevru/dkron-php-client"&gt;Github&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Go Micro Kit</title><link>https://updev.ru/projects/go-micro-kit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/projects/go-micro-kit/</guid><description>&lt;p&gt;Набор преднастроенных бибилотек и ишаблон для быстрого создания микро-сервисов на go.&lt;/p&gt;
+&lt;p&gt;Набор инструментов создан для Schema-First подхода, когда описываются сервисы в формает protocol buffers формате и далее генерируется код этих сервисов.&lt;/p&gt;
+&lt;h2 id="возможности"&gt;Возможности&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;API Gateway&lt;/li&gt;
+&lt;li&gt;Удобная конфигурация&lt;/li&gt;
+&lt;li&gt;Выполнение задач по расписанию (cron)&lt;/li&gt;
+&lt;li&gt;Автоматическая регистрация сервиса в системах service discovery&lt;/li&gt;
+&lt;li&gt;Трассировка, метрики и логи в формет OpenTelemetry&lt;/li&gt;
+&lt;li&gt;Подключение к базе данных&lt;/li&gt;
+&lt;li&gt;Готовый шаблон для создания микросервиса&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Бибилотека доступна на &lt;a href="https://github.com/updevru/go-micro-kit"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Шаблон доступен на &lt;a href="https://github.com/updevru/go-micro-kit-example"&gt;Github&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>PolkovnikBot</title><link>https://updev.ru/projects/polkovnik-bot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://updev.ru/projects/polkovnik-bot/</guid><description>&lt;p&gt;Бот-помощник по организации работы команды и увеличения ее эффективности.
 Помогает не пропускать важные события (встречи, дни рождения), контролирует списание врмение в задачах (если кто то забыл - напоминает),
 уведомляет о важных событиях (новые pull request, релизы, сборки и прочее).&lt;/p&gt;
 &lt;p&gt;Проект призван забрать на себя часть рутины, которую можно автоматизировать.&lt;/p&gt;
