@@ -22,6 +22,67 @@
     color: gray;
 }
 
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    border: 1px solid var(--accent-color);
+    padding: 20px 24px;
+    background: transparent;
+    border-radius: 6px;
+    box-shadow: 4px 4px 0 var(--accent-color);
+    transition: background 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    background: color-mix(in srgb, var(--accent-color) 10%, transparent);
+}
+
+.project-card-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.project-card-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card-title a:hover {
+    color: var(--accent-color);
+}
+
+.project-card-description {
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.project-card-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.project-card-stack span {
+    font-size: 0.8em;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    padding: 2px 8px;
+    opacity: 0.7;
+}
+
+.project-card-link {
+    font-size: 0.9em;
+}
+
 @media (max-width: 820px) {
     .article-title .article-link {
         font-size: 1.5em;
@@ -36,5 +97,9 @@
 
     .post.container {
         padding-right: 20px;
+    }
+
+    .projects-list {
+        grid-template-columns: 1fr;
     }
 }

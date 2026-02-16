@@ -1,0 +1,31 @@
+<div class="post container">
+    <div class="post-header-section">
+        <h1>{{ .Title }}</h1>
+    </div>
+    <div class="projects-list">
+        {{ range .Params.projects }}
+        <div class="project-card">
+            <div class="project-card-title">
+                {{ if .url }}
+                    <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
+                {{ else if .page }}
+                    <a href="{{ .page }}">{{ .name }}</a>
+                {{ else }}
+                    {{ .name }}
+                {{ end }}
+            </div>
+            <p class="project-card-description">{{ .description }}</p>
+            {{ if .stack }}
+            <div class="project-card-stack">
+                {{ range .stack }}
+                    <span>{{ . }}</span>
+                {{ end }}
+            </div>
+            {{ end }}
+            {{ if .url }}
+                <a class="project-card-link" href="{{ .url }}" target="_blank" rel="noopener">{{ .url }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</div>
